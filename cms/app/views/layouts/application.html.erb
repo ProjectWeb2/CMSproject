@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cms</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div name="main" align="center"  style="width:1100px; height:600px; background-color:#999999; position: relative; alignment-adjust: central;" >
+  <div name="hmenu" style="float:left; width:100%; height:100px; background-color:#CCFF66">
+    <% @hmenu.each do |menu| %>
+            <a href="<%= url_for(@contenttolink)%>"><div style="border:medium; float:left; background-color:#36F; margin-left: 5px;" ><%= menu.name %></div>
+            </a>
+    <% end %>
+  </div>
+  <div name="vmenu" style="float:left; width:100px; height:400px; background-color:#00F"></div>
+  <div name="content" style="float:left; width:1000px; height:400px; background-color:#FF0"><%= yield %></div>
+  <div name="footer" style="float:left; width:1100px; height:100px; background-color:#6CC"></div>
+
+
+</div>
+
+
+</body>
+</html>

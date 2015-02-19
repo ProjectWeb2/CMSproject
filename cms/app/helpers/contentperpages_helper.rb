@@ -1,0 +1,2 @@
+module ContentperpagesHelper
+end
