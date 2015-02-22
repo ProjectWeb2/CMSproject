@@ -8,9 +8,10 @@ class ApplicationController < ActionController::Base
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_before_values
-    @contenttolink = Content.find(1)
+
     @vmenu = Menu.where(typ: '2' , location: '1')
     @hmenu = Menu.where(typ: '1' , location: '1')
+    @contenttolink = Content.find(1)
   end
 
 
