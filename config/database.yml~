@@ -12,13 +12,11 @@ default: &default
 development:
   adapter: postgresql
   database: my_database_development
-  username: postgres
   pool: 5
   timeout: 5000
 test:
   adapter: postgresql
   database: my_database_test
-  username: postgres
   pool: 5
   timeout: 5000
 
