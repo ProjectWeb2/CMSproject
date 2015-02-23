@@ -1,0 +1,4 @@
+<% @vmenu.each do |menu| %>
+        <a href="<%= url_for(Content.find(menu.link))%>"><div style="border:medium; width:100%; float:left; background-color:#36F; margin-left: 5px;" ><%= menu.name %></div>
+        </a>
+<% end %>

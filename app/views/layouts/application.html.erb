@@ -23,7 +23,12 @@
               <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
       <% end %>
   </div>
-  <div name="vmenu" style="float:left; width:100px; height:400px; background-color:#00F"></div>
+  <div name="vmenu" style="float:left; width:100px; height:400px; background-color:#00F">
+    <% @vmenu.each do |menu| %>
+            <a href="<%= url_for(Content.find(menu.link))%>"><div style="border:medium; width:100%; float:left; background-color:#36F; margin-left: 5px;" ><%= menu.name %></div>
+            </a>
+    <% end %>
+  </div>
   <div name="content" style="float:left; width:1000px; height:400px; background-color:#FF0"><%= yield %></div>
   <div name="footer" style="float:left; width:1100px; height:100px; background-color:#6CC"></div>
 
