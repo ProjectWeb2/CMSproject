@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cms</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div name="main" align="center"  style="width:1100px; height:600px; background-color:#999999; position: relative; alignment-adjust: central;" >
+  <div name="hmenu" style="float:left; width:100%; height:100px; background-color:#CCFF66">
+
+    <p class="navbar-text pull-right">
+      <% if user_signed_in? %>
+              Logged in as <strong><%= current_user.email %></strong>.
+              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+              <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+              <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+      </div>
+  <div name="vmenu" style="float:left; width:100px; height:400px; background-color:#00F">
+    <%= link_to('Inhalte verwalten',contents_path) %>
+    <%= link_to('Menüs Verwalten',menus_path) %>
+    <%= link_to('User verwalten',menus_path) %>
+    <%= link_to('Bilder verwalten',contents_path) %>
+
+    <% @vmenu.each do |menu| %>
+            <a href="<%= url_for(Content.find(menu.link))%>"><div style="border:medium; width:100%; float:left; background-color:#36F; margin-left: 5px;" ><%= menu.name %></div>
+            </a>
+    <% end %>
+  </div>
+  <div name="content" style="float:left; width:1000px; height:400px; background-color:#FF0"><%= yield %></div>
+  <div name="footer" style="float:left; width:1100px; height:100px; background-color:#6CC"></div>
+
+
+</div>
+
+
+</body>
+</html>

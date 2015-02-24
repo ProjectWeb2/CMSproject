@@ -1,5 +1,5 @@
-class MenusController < ApplicationController
-  before_action :set_menu, only: [:show, :edit, :update, :destroy]
+class MenusController < LayoutadminController
+before_action :set_menu, only: [:show, :edit, :update, :destroy]
 
   # GET /menus
   # GET /menus.json
@@ -60,11 +60,11 @@ class MenusController < ApplicationController
       format.json { head :no_content }
     end
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_menu
       @menu = Menu.find(params[:id])
+      @locations = Location.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

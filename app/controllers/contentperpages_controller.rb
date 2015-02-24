@@ -1,4 +1,4 @@
-class ContentperpagesController < ApplicationController
+class ContentperpagesController < LayoutadminController
   before_action :set_contentperpage, only: [:show, :edit, :update, :destroy]
 
   # GET /contentperpages

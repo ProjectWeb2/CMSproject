@@ -18,4 +18,3 @@
 //= require bootstrap-wysihtml5
 //= require jquery
 //= require bootstrap-sprockets
-//= require rich
