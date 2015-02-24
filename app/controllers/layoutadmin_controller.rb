@@ -1,5 +1,5 @@
 class LayoutadminController < ApplicationController
-  layout "adminlayout"
+  layout "application"
 
   private
   # Use callbacks to share common setup or constraints between actions.
