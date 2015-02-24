@@ -65,6 +65,7 @@ before_action :set_menu, only: [:show, :edit, :update, :destroy]
     def set_menu
       @menu = Menu.find(params[:id])
       @locations = Location.all
+      @typsall = Typ.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

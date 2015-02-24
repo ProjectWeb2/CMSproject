@@ -20,16 +20,17 @@
     <%= f.text_field :link %>
   </div>
   <div class="field">
-    <%= f.label :typ %><br>
-    <%= f.number_field :typ %>
+    <%= f.label :typ_id %><br>
+    <%= f.select :typ_id, options_for_select(Typ.all.map{|s|[s.discription, s.id]}) %>
   </div>
   <div class="field">
     <%= f.label :order %><br>
     <%= f.number_field :order %>
   </div>
   <div class="field">
-    <%= f.label :location %><br>
-    <%= collection_select @locations %>
+    <%= f.label :location_id %><br>
+    <%= f.select :location_id, options_for_select(Location.all.map{|s|[s.name, s.id]}) %>
+
   </div>
   <div class="actions">
     <%= f.submit %>

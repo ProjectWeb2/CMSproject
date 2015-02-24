@@ -3,5 +3,5 @@ class Menu < ActiveRecord::Base
   belongs_to :sites
   belongs_to :location
   belongs_to :typ
-  validates :name , :link , :location , :typ , :presence => true
+  validates :name , :link ,  :presence => true
 end
