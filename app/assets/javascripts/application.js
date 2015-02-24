@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap-wysihtml5/locales
+//= require bootstrap-wysihtml5
+//= require jquery
+//= require bootstrap-sprockets
+//= require rich

@@ -33,6 +33,21 @@ gem 'devise'
 
 gem 'rails_12factor'
 
+gem 'bootstrap-wysihtml5-rails'
+gem 'bootstrap-sass', '~> 3.3.3'
+gem 'simple_form'
+# In your Gemfile (Rails >= 3.2)
+gem 'rich'
+# the edge (unstable) version can be had using:
+# gem 'rich', :git => 'https://github.com/bastiaanterhorst/rich.git'
+
+# If you want to use Paperclip
+gem 'paperclip'
+
+gem 'formtastic', '~> 3.0'
+# If you want to use CarrierWave
+# Be sure to set config.backend = :carrierwave in config/initializers/rich.rb
+gem 'carrierwave'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

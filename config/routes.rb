@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Rich::Engine => '/rich', :as => 'rich'
   devise_for :views
   devise_for :models
   devise_for :users, controllers: { sessions: "users/sessions" }
