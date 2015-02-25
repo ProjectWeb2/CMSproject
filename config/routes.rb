@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'frontend_controller/index'
+
   mount Rich::Engine => '/rich', :as => 'rich'
   devise_for :views
   devise_for :models

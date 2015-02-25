@@ -1,0 +1,2 @@
+module FrontendControllerHelper
+end
