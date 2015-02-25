@@ -40,17 +40,22 @@
 
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        </button>
+        </button>-->
         <a class="navbar-brand" href="#">Cms</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <% if user_signed_in? %>
+                Logged in as <strong><%= current_user.email %></strong>.
+                <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li> |
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+            <% else %>
+                <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li> |
+                <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -58,7 +63,7 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
+        <div name="content" class="col-lg-9">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
@@ -66,17 +71,21 @@
           <div class="well sidebar-nav">
             <h3>Sidebar</h3>
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+
+              <li><%= link_to('Inhalte verwalten',contents_path) %></li>
+              <li><%= link_to('Menüs Verwalten',menus_path) %></li>
+              <li><%= link_to('User verwalten',menus_path) %></li>
+              <li><%= link_to('Bilder verwalten',contents_path) %></li>
             </ul>
+            <% @vmenu.each do |menu| %>
+                <a href="<%= url_for(Content.find(menu.link))%>"><div><%= menu.name %></div>
+                </a>
+            <% end %>
           </div><!--/.well -->
         </div><!--/span-->
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2015</p>
       </footer>
 
     </div> <!-- /container -->
