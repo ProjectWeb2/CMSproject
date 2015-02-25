@@ -15,11 +15,7 @@
     <%= f.label :name %><br>
     <%= f.text_area :name %>
   </div>
-  <div class="field">
-    <%= f.label :link %><br>
-    <%= f.text_field :link %>
-  </div>
-  <div class="field">
+    <div class="field">
     <%= f.label :typ_id %><br>
     <%= f.select :typ_id, options_for_select(Typ.all.map{|s|[s.discription, s.id]}) %>
   </div>

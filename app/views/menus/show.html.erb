@@ -5,14 +5,11 @@
   <%= @menu.name %>
 </p>
 
-<p>
-  <strong>Link:</strong>
-  <%= @menu.link %>
-</p>
+
 
 <p>
   <strong>Typ:</strong>
-  <%= @menu.typ %>
+  <%= Typ.find(@menu.typ_id).discription %>
 </p>
 
 <p>
@@ -22,7 +19,7 @@
 
 <p>
   <strong>Location:</strong>
-  <%= @menu.location %>
+  <%= Location.find(@menu.location_id).name %>
 </p>
 
 <%= link_to 'Edit', edit_menu_path(@menu) %> |

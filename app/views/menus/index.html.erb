@@ -18,13 +18,13 @@
     <% @menus.each do |menu| %>
       <tr>
         <td><%= menu.name %></td>
-        <td><%= menu.link %></td>
-        <td><%= menu.typ %></td>
+            <td><%= menu.typ_id %></td>
         <td><%= menu.order %></td>
-        <td><%= menu.location %></td>
+        <td><%= menu.location_id %></td>
         <td><%= link_to 'Show', menu %></td>
         <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
         <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=link_to 'mit Content verbinden',new_contentperpage_path%></td>
       </tr>
     <% end %>
   </tbody>
