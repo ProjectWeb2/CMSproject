@@ -1,5 +1,6 @@
 class ContentsController < LayoutadminController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
+  # Paperclip
 
   # GET /contents
   # GET /contents.json

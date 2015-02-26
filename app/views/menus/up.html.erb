@@ -1,0 +1,29 @@
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Typ</th>
+    <th>Order</th>
+    <th>Location</th>
+    <th colspan="5"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+
+                          <tr>
+                            <td><%= @menu.name %></td>
+                            <td><%= @menu.typ_id %></td>
+                            <td><%= @menu.order %></td>
+                            <td><%= @menu.location_id %></td>
+
+                            <td><%= link_to 'Show', @menu %></td>
+                            <td><%= link_to 'Edit', edit_menu_path(@menu) %></td>
+
+
+                          </tr>
+
+  </tbody>
+</table>

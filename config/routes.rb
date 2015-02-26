@@ -14,7 +14,10 @@ Rails.application.routes.draw do
 
   resources :typs
 
-  resources :menus
+  resources :menus do
+    get :up
+    get :down
+  end
 
   resources :contentperpages
 
@@ -22,7 +25,9 @@ Rails.application.routes.draw do
 
   resources :sites
   get '/frontend/:id', to: 'frontend#index'
-  get "menus/up" => "menus#up"
+  get '/menus/:id/up', to: 'menus#up'
+  get '/menus/:id/down', to: 'menus#down'
+
 
 
 

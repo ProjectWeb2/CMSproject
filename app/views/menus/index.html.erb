@@ -28,8 +28,13 @@
         <td><%= menu.order %></td>
         <td><%= menu.location_id %></td>
         <% if menu.id != @menus.where(typ_id:typ,location_id: location).order(order: :desc).first.id %>
-        <td><%=button_to "up" , @_controller.up,:id => menu.id%></td>
+                <td> <%= button_to "up", { action: "up" , :menu_id => menu.id}, form_class: "new-thing",  method: :get %></td>
+
                 <%end%>
+        <% if menu.id != @menus.where(typ_id:typ,location_id: location).order(order: :desc).last.id %>
+                <td> <%= button_to "down", { action: "down" , :menu_id => menu.id}, form_class: "new-thing",  method: :get %></td>
+
+        <%end%>
 
             <td><%= link_to 'Show', menu %></td>
         <td><%= link_to 'Edit', edit_menu_path(menu) %></td>

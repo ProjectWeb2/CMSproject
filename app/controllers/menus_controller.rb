@@ -1,8 +1,8 @@
-class MenusController < ActionController::Base
+class MenusController < LayoutadminController
 before_action :set_menu, only: [:show, :edit, :update, :destroy]
 before_action :set_typlocation, only: [:index]
 helper_method :up
-
+include ActiveModel::Model
   # GET /menus
   # GET /menus.json
   def index
@@ -24,20 +24,49 @@ helper_method :up
   def edit
 
   end
+  def down
+
+    @menu = Menu.find(params[:menu_id])
+    if Menu.exists?(typ_id: @menu.typ_id,location_id: @menu.location_id,order:@menu.order.to_i - 1)
+
+      @menu2 = Menu.where(typ_id: @menu.typ_id,location_id: @menu.location_id,order:@menu.order.to_i - 1).first
+      @menu.order = @menu.order.to_i - 1
+      @menu2.order = @menu2.order.to_i + 1
+
+
+      respond_to do |format|
+        if @menu.save and @menu2.save
+          format.html { redirect_to menus_path, notice: 'Position changed.' }
+          format.json { render :show, status: :created, location: @menu }
+        else
+          format.html { render :index }
+          format.json { render json: @menu.errors, status: :unprocessable_entity }
+        end
+
+      end
+    end
+    end
   def up
-    @menu = Menu.find(13)
+    @menu = Menu.find(params[:menu_id])
     if Menu.exists?(typ_id: @menu.typ_id,location_id: @menu.location_id,order:@menu.order.to_i + 1)
 
      @menu2 = Menu.where(typ_id: @menu.typ_id,location_id: @menu.location_id,order:@menu.order.to_i + 1).first
       @menu.order = @menu.order.to_i + 1
-     @menu.save
-    @menu2.order = @menu2.order.to_i - 1
-           @menu2.save
+        @menu2.order = @menu2.order.to_i - 1
 
 
+     respond_to do |format|
+       if @menu.save and @menu2.save
+         format.html { redirect_to menus_path, notice: 'Position changed.' }
+         format.json { render :show, status: :created, location: @menu }
+       else
+         format.html { render :index }
+         format.json { render json: @menu.errors, status: :unprocessable_entity }
+       end
 
       end
-  end
+    end
+    end
 
   # POST /menus
   # POST /menus.json
@@ -98,6 +127,6 @@ helper_method :up
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-
+      params.require(:menu).permit(:name,:location_id, :typ_id, :order)
     end
 end

@@ -1,26 +1,14 @@
-<% @contentselectet.all.each do |content|
+<% @contents.all.each do |content|
 %>
         <div >
           <table><tr>
 
-            <td><%= Content.find(content.content_id).text %></td>
+            <td><%= content.text %></td>
             <td><%= link_to 'auswählen', content %></td>
 
           </tr>
           </table>
         </div>
 <%end %>
-<% @contentnotelectet.all.each do |content| %>
-        <div ><table> <tr>
+<%= link_to 'New Location', new_content_path %>
 
-          <td><%= content.text %></td>
-
-          <td><%= link_to 'auswählen', content %></td>
-
-        </tr>
-        </table>
-        </div>
-<%end%>
-
-
-<%= link_to 'Back', contentperpages_path %>
