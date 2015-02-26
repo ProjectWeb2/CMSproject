@@ -6,28 +6,40 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Link</th>
-      <th>Typ</th>
+            <th>Typ</th>
       <th>Order</th>
       <th>Location</th>
-      <th colspan="3"></th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
-  <tbody>
-    <% @menus.each do |menu| %>
+    <tbody>
+    <% @typsall.each do |typ| %>
+        <%  @locations.each do |location| %>
+                <% if @menus.where(typ_id:typ,location_id: location).any? %>
+                    <tr><td colpan="6"><%= typ.discription + " : " + location.name   %></td></tr>
+                            <%end%>
+           <% @menus.where(typ_id:typ,location_id: location).order(order: :desc).each do |menu| %>
+
+
       <tr>
         <td><%= menu.name %></td>
             <td><%= menu.typ_id %></td>
         <td><%= menu.order %></td>
         <td><%= menu.location_id %></td>
-        <td><%= link_to 'Show', menu %></td>
+        <% if menu.id != @menus.where(typ_id:typ,location_id: location).order(order: :desc).last.id %>
+        <td><%=button_to "up" , controller.up(menu.id),:class => "button" %></td>
+                <%end%>
+
+            <td><%= link_to 'Show', menu %></td>
         <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
         <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%=link_to 'mit Content verbinden', contentperpages_path(:menu => menu.id)  %></td>
 
       </tr>
-    <% end %>
+    <% end
+       end
+    end%>
   </tbody>
 </table>
 

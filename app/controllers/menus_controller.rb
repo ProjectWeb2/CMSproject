@@ -1,6 +1,6 @@
 class MenusController < LayoutadminController
 before_action :set_menu, only: [:show, :edit, :update, :destroy]
-
+before_action :set_typlocation, only: [:index]
   # GET /menus
   # GET /menus.json
   def index
@@ -15,17 +15,36 @@ before_action :set_menu, only: [:show, :edit, :update, :destroy]
   # GET /menus/new
   def new
     @menu = Menu.new
+
   end
 
   # GET /menus/1/edit
   def edit
+
+  end
+  def up(id)
+    @menu = Menu.find(id)
+    if Menu.exists?(typ_id: @menu.typ_id,location_id: @menu.location_id,order:@menu.order.to_i + 1)
+
+     @menu2 = Menu.find(typ_id: @menu.typ_id,location_id: @menu.location_id,order:@menu.order.to_i + 1)
+      Menu.update(@menu.id, order: @menu.order.to_i + 1 )
+     Menu.update(@menu2.id, order: @menu2.order.to_i - 1 )
+      redirect_to menus_path
+
+
+      end
+
   end
 
   # POST /menus
   # POST /menus.json
   def create
     @menu = Menu.new(menu_params)
-
+    if Menu.where(typ_id: @menu.typ_id,location_id: @menu.location_id).any?
+    @menu.order = Menu.where(typ_id: @menu.typ_id,location_id: @menu.location_id).order(order: :desc).first.order.to_i + 1
+    else
+      @menu.order = 1
+      end
     respond_to do |format|
       if @menu.save
         format.html { redirect_to @menu, notice: 'Menu was successfully created.' }
@@ -67,10 +86,15 @@ before_action :set_menu, only: [:show, :edit, :update, :destroy]
       @locations = Location.all
       @typsall = Typ.all
     end
+    def set_typlocation
+      @locations = Location.all
+      @typsall = Typ.all
+
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:name,  :order,  :typ_id,
-      :location_id)
+
     end
 end
