@@ -1,5 +1,28 @@
-<h1>New Contentperpage</h1>
+        <div ><table> <tr>
 
-<%= render 'form' %>
+            <td><%= @content.text %></td></tr><td>
+
+          <%= form_for(@contentperpage) do |f| %>
+
+                  <div class="field">
+
+                    <%= f.hidden_field :content_id %>
+                  </div>
+                  <div class="field">
+
+                    <%= f.hidden_field :menu_id %>
+                  </div>
+                  <div class="actions">
+                    <%= f.submit %>
+                  </div>
+          <% end %>
+        </td>
+
+
+            </tr>
+          </table>
+        </div>
+
+
 
 <%= link_to 'Back', contentperpages_path %>

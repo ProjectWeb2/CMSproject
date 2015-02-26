@@ -1,0 +1,7 @@
+<%    @content .all.each do |content|
+%>
+        <div style="width=100%, height= 50px "><%=Content.find(content.content_id).text %></div>
+        <%
+end
+    %>
+<%= @lookid%>

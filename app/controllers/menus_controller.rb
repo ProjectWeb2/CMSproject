@@ -70,7 +70,7 @@ before_action :set_menu, only: [:show, :edit, :update, :destroy]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.require(:menu).permit(:name, :link, :typ, :order, :location, :typ_id,
+      params.require(:menu).permit(:name,  :order,  :typ_id,
       :location_id)
     end
 end

@@ -24,7 +24,8 @@
         <td><%= link_to 'Show', menu %></td>
         <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
         <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%=link_to 'mit Content verbinden',new_contentperpage_path%></td>
+        <td><%=link_to 'mit Content verbinden', contentperpages_path(:menu => menu.id)  %></td>
+
       </tr>
     <% end %>
   </tbody>

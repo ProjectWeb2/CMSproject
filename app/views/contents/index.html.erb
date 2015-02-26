@@ -1,27 +1,26 @@
-<p id="notice"><%= notice %></p>
+<% @contentselectet.all.each do |content|
+%>
+        <div >
+          <table><tr>
 
-<h1>Listing Contents</h1>
+            <td><%= Content.find(content.content_id).text %></td>
+            <td><%= link_to 'auswählen', content %></td>
 
-<table>
-  <thead>
-    <tr>
-      <th>Text</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          </tr>
+          </table>
+        </div>
+<%end %>
+<% @contentnotelectet.all.each do |content| %>
+        <div ><table> <tr>
 
-  <tbody>
-    <% @contents.each do |content| %>
-      <tr>
-        <td><%= content.text %></td>
-        <td><%= link_to 'Show', content %></td>
-        <td><%= link_to 'Edit', edit_content_path(content) %></td>
-        <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <td><%= content.text %></td>
 
-<br>
+          <td><%= link_to 'auswählen', content %></td>
 
-<%= link_to 'New Content', new_content_path %>
+        </tr>
+        </table>
+        </div>
+<%end%>
+
+
+<%= link_to 'Back', contentperpages_path %>

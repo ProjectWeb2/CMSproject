@@ -69,6 +69,6 @@ class ContentsController < LayoutadminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
-      params.require(:content).permit(:text)
+      params.require(:content).permit(:text,:id)
     end
 end

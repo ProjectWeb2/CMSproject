@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  get 'frontend_controller/index'
+  get 'frontend/show'
+
+  get 'frontend/index'
+
+  get "frontend" => 'frontend#index'
+
 
   mount Rich::Engine => '/rich', :as => 'rich'
   devise_for :views
@@ -16,8 +21,9 @@ Rails.application.routes.draw do
   resources :contents
 
   resources :sites
+  get '/frontend/:id', to: 'frontend#index'
 
-  get 'examples' =>  'users#registrations#new'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

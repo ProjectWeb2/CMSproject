@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Contentperpages</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Contentid</th>
-      <th>Subitemid</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @contentselectet.all.each do |content|
+%>
+        <div >
+          <table><tr>
 
-  <tbody>
-    <% @contentperpages.each do |contentperpage| %>
-      <tr>
-        <td><%= contentperpage.contentid %></td>
-        <td><%= contentperpage.subitemid %></td>
-        <td><%= link_to 'Show', contentperpage %></td>
-        <td><%= link_to 'Edit', edit_contentperpage_path(contentperpage) %></td>
-        <td><%= link_to 'Destroy', contentperpage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            <td><%= Content.find(content.content_id).text %></td>
+            <td><%= link_to 'auswählen', edit_contentperpage_path(:id => content, :menu => @contentperpagemenuid ) %></td>
 
-<br>
+          </tr>
+          </table>
+        </div>
+<%end %>
+<% @contentnotelectet.all.each do |content| %>
+        <div ><table> <tr>
 
-<%= link_to 'New Contentperpage', new_contentperpage_path %>
+          <td><%= content.text %></td>
+          <td><%=link_to 'auswählen', new_contentperpage_path(:menu => @contentperpagemenuid,:content => content)  %></td>
+
+
+        </tr>
+        </table>
+        </div>
+<%end%>
+
+
+<%= link_to 'Back', contentperpages_path %>

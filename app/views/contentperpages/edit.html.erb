@@ -1,6 +1,16 @@
-<h1>Editing Contentperpage</h1>
+<table> <tr>
 
-<%= render 'form' %>
+  <td><%= Content.find(@contentperpage.content_id).text %></td></tr><td>
+
+  <td><%= link_to 'Destroy', @contentperpage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</td>
+
+
+  </tr>
+</table>
+
+
+
 
 <%= link_to 'Show', @contentperpage %> |
 <%= link_to 'Back', contentperpages_path %>

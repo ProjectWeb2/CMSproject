@@ -1,0 +1,2 @@
+module FrondendHelper
+end
