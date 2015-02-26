@@ -32,12 +32,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 
 gem 'rails_12factor'
+gem 'cancancan', '~> 1.10'
+gem "rolify"
 
 gem 'bootstrap-wysihtml5-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'simple_form'
 # In your Gemfile (Rails >= 3.2)
 gem 'rich'
+gem "ckeditor", :git => "https://github.com/galetahub/ckeditor.git"
+gem 'bootsy'
 # the edge (unstable) version can be had using:
 # gem 'rich', :git => 'https://github.com/bastiaanterhorst/rich.git'
 

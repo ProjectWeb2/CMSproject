@@ -1,26 +1,25 @@
-<%= form_for :content, :html => { :multipart => true } do |f| %>
+<%= form_for(@content, multipart: true) do |f| %>
+        <% if @content.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@content.errors.count, "error") %> prohibited this location from being saved:</h2>
 
-  <% if @content.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@content.errors.count, "error") %> prohibited this content from being saved:</h2>
-
-      <ul>
-      <% @content.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </div>
-<div class="field">
-  <%= f.label :text %><br>
-<%= f.file_field :photo%>
+                  <ul>
+                    <% @content.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+        <% end %>
+        <div class="field">
+          <%= f.bootsy_area :text%>
+        </div>
+   <div class="field">
+  <%= f.label :pic %><br>
+<%= f.file_field :pic%>
 </div>
+
   <div class="actions">
-    <%= f.submit %>
+
+        <%= f.submit %>
   </div>
 <% end %>

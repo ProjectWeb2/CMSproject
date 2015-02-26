@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootsy
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
@@ -19,3 +20,4 @@
 //= require bootstrap-wysihtml5
 //= require jquery
 //= require bootstrap-sprockets
+//= require ckeditor/init

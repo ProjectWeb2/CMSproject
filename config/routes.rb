@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
+  mount Ckeditor::Engine => '/ckeditor'
   get 'frontend/show'
 
   get 'frontend/index'
@@ -27,6 +29,8 @@ Rails.application.routes.draw do
   get '/frontend/:id', to: 'frontend#index'
   get '/menus/:id/up', to: 'menus#up'
   get '/menus/:id/down', to: 'menus#down'
+  get "/" , to: 'frontend#index'
+
 
 
 
