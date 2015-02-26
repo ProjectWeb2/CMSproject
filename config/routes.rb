@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :sites
   get '/frontend/:id', to: 'frontend#index'
+  get "menus/up" => "menus#up"
 
 
 

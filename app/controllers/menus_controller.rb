@@ -1,6 +1,8 @@
-class MenusController < LayoutadminController
+class MenusController < ActionController::Base
 before_action :set_menu, only: [:show, :edit, :update, :destroy]
 before_action :set_typlocation, only: [:index]
+helper_method :up
+
   # GET /menus
   # GET /menus.json
   def index
@@ -22,18 +24,19 @@ before_action :set_typlocation, only: [:index]
   def edit
 
   end
-  def up(id)
-    @menu = Menu.find(id)
+  def up
+    @menu = Menu.find(13)
     if Menu.exists?(typ_id: @menu.typ_id,location_id: @menu.location_id,order:@menu.order.to_i + 1)
 
-     @menu2 = Menu.find(typ_id: @menu.typ_id,location_id: @menu.location_id,order:@menu.order.to_i + 1)
-      Menu.update(@menu.id, order: @menu.order.to_i + 1 )
-     Menu.update(@menu2.id, order: @menu2.order.to_i - 1 )
-      redirect_to menus_path
+     @menu2 = Menu.where(typ_id: @menu.typ_id,location_id: @menu.location_id,order:@menu.order.to_i + 1).first
+      @menu.order = @menu.order.to_i + 1
+     @menu.save
+    @menu2.order = @menu2.order.to_i - 1
+           @menu2.save
+
 
 
       end
-
   end
 
   # POST /menus
