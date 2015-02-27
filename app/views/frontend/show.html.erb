@@ -7,11 +7,11 @@
                 if @contents.useronly==true and user_signed_in?
 
 %>
-        <div style="width=100%, height= 50px "><%=Content.find(content.content_id).text %></div>
+        <div style="border-style: solid; border-bottom: thick dotted #ff0000; width=100%, height= 50px "><%=Content.find(content.content_id).text %></div>
         <%
            else
              if @contents.useronly==false%>
-               <div style="width=100%, height= 50px "><%=Content.find(content.content_id).text %></div>
+               <div style=" width=100%, height= 50px "><%=Content.find(content.content_id).text %></div>
 
        <%    end
           end

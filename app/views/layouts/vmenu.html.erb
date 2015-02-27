@@ -1,3 +1,17 @@
+<%if(@layoutme ==1)%>
+        <li><%= link_to('Inhalte verwalten',contents_path) %></li>
+        <li><%= link_to('Menüs Verwalten',menus_path) %></li>
+        <li><%= link_to('User verwalten','/useradministration') %></li>
+        <li><%= link_to('Bilder verwalten',images_path) %></li>
+
+<%end%>
+
+
+<%if(@layoutme ==0)%>
 <% @vmenu.each do |menu| %>
                 <li><%= link_to menu.name, frontend_show_path(:menu => menu.id)  %></li>
 <% end %>
+
+
+
+<%end%>

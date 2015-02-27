@@ -45,27 +45,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>-->
-        <a class="navbar-brand" href="#">Cms</a>
+        <a class="navbar-brand" href="/frontend">Cms</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <% if user_signed_in? %>
-                Logged in as <strong><%= current_user.email %></strong>.
-                <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li> |
-                <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-            <% else %>
-                <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li> |
-                <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
-            <% end %>
-            <%if(@layoutme ==0)%>
 
-            <%= render  :file => '/layouts/vmenu.html.erb'%>
-                    <%end
-            if user_signed_in?
-                if current_user.has_role? :admin %>
-                            <li><%= link_to "Adminbereich", contents_path, :class => 'navbar-link'  %></li>
-              <%end
-             end%>
-          <li><%= link_to 'Galary', '/frontend/bild'%></li>
+
+            <%= render  :file => '/layouts/hmenu.html.erb'%>
+
           </ul>
         </div>
       </div>
@@ -81,19 +67,11 @@
           <div class="well sidebar-nav">
             <h3>Sidebar</h3>
             <ul class="nav nav-list">
-              <%if(@layoutme ==1)%>
-                      <li><%= link_to('Inhalte verwalten',contents_path) %></li>
-                      <li><%= link_to('Menüs Verwalten',menus_path) %></li>
-                      <li><%= link_to('User verwalten','/useradministration') %></li>
-                      <li><%= link_to('Bilder verwalten',images_path) %></li>
-
-              <%end%>
 
 
-            <%if(@layoutme ==0)%>
 
-                    <%= render  :file => '/layouts/hmenu.html.erb'%>
-            <%end%>
+                    <%= render  :file => '/layouts/vmenu.html.erb'%>
+
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
