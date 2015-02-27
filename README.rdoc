@@ -14,4 +14,7 @@ Admin Account:
     Email Adresse: "admin@web.de"
     Password: "12345678"
 Desweiteren definierte Location für die Menus.
+Locations:
+    Location 1 -> Für das Backend zur erweiterung des Backends
+    Location 2 -> Für das Frontend
 Dann mit "rails server" den lokalen Server starten und im Browser "localhost:3000/" eingeben.
