@@ -43,3 +43,4 @@ Benutze Gem:
   * turbolinks (2.5.3)
   * twitter-bootstrap-rails (3.2.0)
  
+Durch kopieren des Inhaltes db/content.erb in db/seeds.erb erhält man eine komplett fertige Seite mit Beispieldaten.
