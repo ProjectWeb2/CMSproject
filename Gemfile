@@ -31,7 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 gem 'devise'
 
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 gem 'cancancan', '~> 1.10'
 gem "rolify"
 gem 'hermitage'
