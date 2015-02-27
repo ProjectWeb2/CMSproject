@@ -193,6 +193,14 @@
     <orderEntry type="library" scope="PROVIDED" name="responders (v2.1.0, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rich (v1.4.6, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rolify (v4.0.0, rbenv: 2.1.2) [gem]" level="application" />
+<<<<<<< HEAD
+=======
+    <orderEntry type="library" scope="PROVIDED" name="rspec-core (v3.2.1, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rspec-expectations (v3.2.0, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rspec-mocks (v3.2.1, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rspec-rails (v3.2.1, rbenv: 2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rspec-support (v3.2.2, rbenv: 2.1.2) [gem]" level="application" />
+>>>>>>> a32dc34174b103962d7bd9476cfdb7b8c7c06e61
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.4.12, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v5.0.1, rbenv: 2.1.2) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sdoc (v0.4.1, rbenv: 2.1.2) [gem]" level="application" />
