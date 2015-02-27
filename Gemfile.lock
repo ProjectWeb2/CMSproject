@@ -262,6 +262,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   bootstrap-sass (~> 3.3.3)
   bootstrap-wysihtml5-rails
   bootsy
@@ -280,6 +281,7 @@ DEPENDENCIES
   pg
   rails (= 4.2.0)
   rails_12factor
+  railties
   rich
   rolify
   rspec-rails (~> 3.0)

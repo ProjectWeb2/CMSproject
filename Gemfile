@@ -30,6 +30,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'devise'
+gem  'railties'
+gem 'rich'
 
 gem 'rails_12factor', group: :production
 gem 'cancancan', '~> 1.10'
@@ -39,7 +41,7 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'simple_form'
 # In your Gemfile (Rails >= 3.2)
-gem 'rich'
+gem 'activesupport'
 gem "ckeditor", :git => "https://github.com/galetahub/ckeditor.git"
 gem 'bootsy'
 # the edge (unstable) version can be had using:
