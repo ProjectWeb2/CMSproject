@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'useradministration/show'
+
+  get 'useradministration/edit'
+
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   mount Ckeditor::Engine => '/ckeditor'
   get 'frontend/show'
@@ -13,9 +17,11 @@ Rails.application.routes.draw do
   devise_for :models
   devise_for :users, controllers: { sessions: "users/sessions" }
   resources :locations
-
+  resources :useradministration do
+    get :add
+    get :remove
+  end
   resources :typs
-
   resources :menus do
     get :up
     get :down
@@ -30,6 +36,8 @@ Rails.application.routes.draw do
   get '/menus/:id/up', to: 'menus#up'
   get '/menus/:id/down', to: 'menus#down'
   get "/" , to: 'frontend#index'
+  get "/useradministration/add/:user_id&:role_id", to:'useradministration#add'
+  get "/useradministration/remove/:user_id&:role_id", to:'useradministration#remove'
 
 
 

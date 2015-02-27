@@ -1,7 +1,7 @@
 class LayoutadminController < ApplicationController
   layout "adminlayout"
   before_action :auto_user
-  before_action :authenticate_user!
+  before_action :authenticate_user
 
   private
   # Use callbacks to share common setup or constraints between actions.
@@ -11,6 +11,7 @@ class LayoutadminController < ApplicationController
 
   end
   def auto_user
+
     if current_user.has_role? :admin
     else
       redirect_to frontend_path
