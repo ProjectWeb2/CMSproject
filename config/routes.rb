@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :images
+
   get 'useradministration/show'
 
   get 'useradministration/edit'
@@ -32,12 +34,14 @@ Rails.application.routes.draw do
   resources :contents
 
   resources :sites
-  get '/frontend/:id', to: 'frontend#index'
+  get '/frontend/:id', to: 'frontend#show'
+  get '/frontend:menu', to: 'frontend#show'
   get '/menus/:id/up', to: 'menus#up'
   get '/menus/:id/down', to: 'menus#down'
   get "/" , to: 'frontend#index'
   get "/useradministration/add/:user_id&:role_id", to:'useradministration#add'
   get "/useradministration/remove/:user_id&:role_id", to:'useradministration#remove'
+  get '/frontend/bild', to: 'frontend#image'
 
 
 

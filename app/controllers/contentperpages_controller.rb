@@ -98,10 +98,10 @@ end
     @contentperpagemenuid = params[:menu]
     @contentselectet = Contentperpage.where(menu_id:  @contentperpagemenuid)
     @contentobject= self.new
-    if @contentelectet.nil?
+    if @contentselectet.nil?
       @contentnotelectet = Content.all
     else
-      @contentnotelectet = Content.where('id not in (?)',@contentselectet.map(&:content_id).join(','))
+      @contentnotelectet = Content.where('id not in (?)',@contentselectet.map(&:content_id))
     end
     end
 

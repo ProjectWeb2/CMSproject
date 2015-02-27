@@ -56,6 +56,16 @@
                 <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li> |
                 <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
             <% end %>
+            <%if(@layoutme ==0)%>
+
+            <%= render  :file => '/layouts/vmenu.html.erb'%>
+                    <%end
+            if user_signed_in?
+                if current_user.has_role? :admin %>
+                            <li><%= link_to "Adminbereich", contents_path, :class => 'navbar-link'  %></li>
+              <%end
+             end%>
+          <li><%= link_to 'Galary', '/frontend/bild'%></li>
           </ul>
         </div>
       </div>
@@ -71,16 +81,20 @@
           <div class="well sidebar-nav">
             <h3>Sidebar</h3>
             <ul class="nav nav-list">
+              <%if(@layoutme ==1)%>
+                      <li><%= link_to('Inhalte verwalten',contents_path) %></li>
+                      <li><%= link_to('Menüs Verwalten',menus_path) %></li>
+                      <li><%= link_to('User verwalten','/useradministration') %></li>
+                      <li><%= link_to('Bilder verwalten',images_path) %></li>
 
-              <li><%= link_to('Inhalte verwalten',contents_path) %></li>
-              <li><%= link_to('Menüs Verwalten',menus_path) %></li>
-              <li><%= link_to('User verwalten',menus_path) %></li>
-              <li><%= link_to('Bilder verwalten',contents_path) %></li>
+              <%end%>
+
+
+            <%if(@layoutme ==0)%>
+
+                    <%= render  :file => '/layouts/hmenu.html.erb'%>
+            <%end%>
             </ul>
-            <% @vmenu.each do |menu| %>
-                <a href="<%= url_for(Content.find(menu.link))%>"><div><%= menu.name %></div>
-                </a>
-            <% end %>
           </div><!--/.well -->
         </div><!--/span-->
       </div><!--/row-->

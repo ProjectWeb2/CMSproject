@@ -17,7 +17,14 @@
   <%= f.label :pic %><br>
 <%= f.file_field :pic%>
 </div>
-
+        <div class="field">
+          <%= f.label :useronly %><br>
+        <%= f.check_box :useronly %>
+        </div>
+        <div class="field">
+          <%= f.label :active %><br>
+          <%= f.check_box :active %>
+        </div>
   <div class="actions">
 
         <%= f.submit %>

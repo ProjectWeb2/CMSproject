@@ -1,23 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-
+<p ><b>verbunden:</b></p>
 <% @contentselectet.all.each do |content|
 %>
         <div >
           <table><tr>
 
-            <td><%= Content.find(content.content_id).text %></td>
-            <td><%= link_to 'auswählen', edit_contentperpage_path(:id => content, :menu => @contentperpagemenuid ) %></td>
+            <td width="100"><%= Content.find(content.content_id).text %></td>
+            <td><%= link_to image_tag('edit.png', height: '20', width: '20'), edit_contentperpage_path(:id => content, :menu => @contentperpagemenuid ) %></td>
 
           </tr>
           </table>
         </div>
 <%end %>
+<br>
+<br>
+<p ><b>nicht verbunden:</b></p>
 <% @contentnotelectet.all.each do |content| %>
         <div ><table> <tr>
 
-          <td><%= content.text %></td>
-          <td><%=link_to 'auswählen', new_contentperpage_path(:menu => @contentperpagemenuid,:content => content)  %></td>
+          <td width="100"><%= content.text %></td>
+          <td><%= link_to image_tag('edit.png', height: '20', width: '20'), new_contentperpage_path(:menu => @contentperpagemenuid,:content => content)  %></td>
 
 
         </tr>
@@ -26,4 +29,4 @@
 <%end%>
 
 
-<%= link_to 'Back', contentperpages_path %>
+<%= link_to image_tag('back.png', height: '20', width: '20'), contentperpages_path %>

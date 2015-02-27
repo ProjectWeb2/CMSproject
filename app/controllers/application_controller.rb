@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_before_values
+    @layoutme = 0
+
 
     @vmenu = Menu.where(typ_id: '2' , location_id: '1')
     @hmenu = Menu.where(typ_id: '1' , location_id: '1')

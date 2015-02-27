@@ -1,7 +1,20 @@
-<%    @content .all.each do |content|
+<% if params[:id]== 'bild' %>
+     <%=render_gallery_for @images %><%
+     else
+   @content .all.each do |content|
+                 @contents=Content.find(content.content_id)
+                 if @contents.active == true
+                if @contents.useronly==true and user_signed_in?
+
 %>
         <div style="width=100%, height= 50px "><%=Content.find(content.content_id).text %></div>
         <%
-end
-    %>
-<%= @lookid%>
+           else
+             if @contents.useronly==false%>
+               <div style="width=100%, height= 50px "><%=Content.find(content.content_id).text %></div>
+
+       <%    end
+          end
+          end
+        end
+       end%>

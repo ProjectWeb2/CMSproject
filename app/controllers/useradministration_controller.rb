@@ -1,4 +1,4 @@
-class UseradministrationController < ApplicationController
+class UseradministrationController <LayoutadminController
   before_action :set_userdata, only: [:show, :edit,  :destroy]
   def show
 
@@ -19,6 +19,13 @@ class UseradministrationController < ApplicationController
     @users = User.all
   end
   def edit
+  end
+  def destroy
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to '/useradministration', notice: 'Benutzer gelöscht.' }
+      format.json { head :no_content }
+    end
   end
   private
   # Use callbacks to share common setup or constraints between actions.

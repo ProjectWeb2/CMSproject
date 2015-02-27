@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require hermitage
 //= require jquery_ujs
 //= require bootsy
 //= require twitter/bootstrap
@@ -19,5 +20,6 @@
 //= require bootstrap-wysihtml5/locales
 //= require bootstrap-wysihtml5
 //= require jquery
+//= require hermitage
 //= require bootstrap-sprockets
 //= require ckeditor/init

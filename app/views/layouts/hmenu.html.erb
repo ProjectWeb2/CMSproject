@@ -1,4 +1,4 @@
 <% @hmenu.each do |menu| %>
-        <a href="<%= url_for(@contenttolink)%>"><div style="border:medium; float:left; background-color:#36F; margin-left: 5px;" ><%= menu.name %></div>
-        </a>
+        <li><%= link_to menu.name, frontend_show_path(:menu => menu.id)   %></li>
+
 <% end %>

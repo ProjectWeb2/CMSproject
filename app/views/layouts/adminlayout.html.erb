@@ -77,9 +77,7 @@
           <li><%= link_to('User verwalten',menus_path) %></li>
           <li><%= link_to('Bilder verwalten',contents_path) %></li>
         </ul>
-        <% @vmenu.each do |menu| %>
-            <a href="<%= url_for(Content.find(menu.link))%>"><div><%= menu.name %></div></a>
-        <% end %>
+
       </div><!--/.well -->
     </div><!--/span-->
   </div><!--/row-->
