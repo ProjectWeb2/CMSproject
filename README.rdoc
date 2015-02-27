@@ -9,12 +9,37 @@ Bei Ubuntu:
 
 Anschließend die Datenbank erstellen mit "rake db:create"
 Danach wird ein Datenbank Migrate durchgeführt: "rake db:migrate"
-Um die Seed Datei zu laden müssen Sie "rake db:seed" dadurch erhällt das CMS System ein automatischen Admin Account.
-Admin Account:
-    Email Adresse: "admin@web.de"
-    Password: "12345678"
+Um die Seed Datei zu laden müssen Sie "rake db:seed" dadurch erhällt das CMS seine Grunddaten.
+Wenn sie sich das erstmal einen Account erstellen erhalten sie automitisch Administrationsrechte.
 Desweiteren definierte Location für die Menus.
 Locations:
     Location 1 -> Für das Backend zur erweiterung des Backends
     Location 2 -> Für das Frontend
 Dann mit "rails server" den lokalen Server starten und im Browser "localhost:3000/" eingeben.
+Wenn Sie ihr eigenes Design erstellen wollen, können sie die Application.html.erb verändern.
+Um die Menüs zu impotieren müssen sie nur:
+Vertikales Menü:    <%= render  :file => '/layouts/vmenu.html.erb'%>
+Horizontales Menü: <%= render  :file => '/layouts/hmenu.html.erb'%>
+an den gewünschten Ort einfügen und mit <ul> </ul> umschließen.
+Desweiteren kann dieses CMS sehr leicht an weitere Bedürfnisse angepasst werden.
+Ein Impressumsfeld ist schon vorhanden und kann so genutzt werden. 
+Bei Fragen können sie mich kontaktieren:
+Kevin.Haase.kh@googlemail.com
+
+Benutze Gem:
+ 
+  * bootstrap-sass (3.3.3)
+  * bootstrap-wysihtml5-rails (0.3.3.6)
+  * cancancan (1.10.1)
+  * carrierwave (0.10.0)
+    * devise (3.4.1)
+    * formtastic (3.1.3)
+    * hermitage (0.0.6)
+  * paperclip (4.2.1)
+  * pg (0.18.1)
+  * rich (1.4.6)
+  * rolify (4.0.0)
+  * simple_form (3.1.0)
+  * turbolinks (2.5.3)
+  * twitter-bootstrap-rails (3.2.0)
+ 
